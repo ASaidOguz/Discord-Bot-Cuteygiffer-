@@ -1,1 +1,1 @@
-worker: ./HP/Discord-Bot-Cuteygiffer-
+worker: ./bin/CuteyGiffer
