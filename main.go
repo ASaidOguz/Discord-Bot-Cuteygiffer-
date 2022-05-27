@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -27,7 +26,7 @@ func main() {
 	Token := os.Getenv(DISCORD_TOKEN)
 	//refresh token/JWT
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("Replit doesn't need to read .env files.")
 	}
 
 	// 2
