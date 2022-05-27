@@ -5,13 +5,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
 )
 
 //Ready is handler for getting ready
@@ -22,14 +20,14 @@ func Ready(s *discordgo.Session, event *discordgo.Event) {
 //MessageCreate is handler for creating response message to !search command
 func MessageCreate(s *discordgo.Session, message *discordgo.MessageCreate) {
 	// 1
-	err := godotenv.Load(".env")
-	if err != nil {
-		fmt.Println("Replit doesn't need to read .env files.")
-	}
+	//err := godotenv.Load(".env")
+	//if err != nil {
+	//	fmt.Println("Replit doesn't need to read .env files.")
+	//}
 	giphyToken := os.Getenv("GIPHY_TOKEN")
-	if err != nil {
-		log.Fatal(err)
-	}
+	//if err != nil {
+	//	log.Fatal(err)
+	//	}
 	// 2
 	if message.Author.ID == s.State.User.ID {
 		return
