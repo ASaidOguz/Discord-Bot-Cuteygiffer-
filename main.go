@@ -18,6 +18,10 @@ const DISCORD_TOKEN = "DISCORD_TOKEN"
 
 func main() {
 	err := godotenv.Load(".env")
+	if err != nil {
+		fmt.Println("Replit doesn't need to read .env files.")
+	}
+
 	Token := os.Getenv(DISCORD_TOKEN)
 	//refresh token/JWT
 	if err != nil {
