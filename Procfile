@@ -1,1 +1,1 @@
-web: bin/CuteyGiffer
+worker: go run main.go
