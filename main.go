@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
+	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
@@ -44,8 +46,14 @@ func main() {
 	}
 	fmt.Println("The bot is now running . Press CTRL-C to exit")
 	//5
+	http.HandleFunc("/", handler123)
+	http.ListenAndServe(":8000", nil)
 
 	sc := make(chan os.Signal, 1)
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Kill)
 	<-sc
+}
+
+func handler123(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Hello World")
 }
